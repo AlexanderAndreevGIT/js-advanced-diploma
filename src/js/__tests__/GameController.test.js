@@ -12,11 +12,11 @@ gameCtrl.gameState.playerTeam.addAll(generateTeam([Swordsman], 1, 2));
 gameCtrl.gameState.playerTeam.addTeamNameToCharacter('player');
 gameCtrl.gameState.botTeam.addAll(generateTeam([Daemon], 1, 2));
 gameCtrl.gameState.botTeam.addTeamNameToCharacter('bot');
-gameCtrl.positionCharactersAtlevelStart();
-gameCtrl.gameState.positions[0].position = 53;
-gameCtrl.gameState.positions[1].position = 57;
-gameCtrl.gameState.positions[2].position = 62;
-gameCtrl.gameState.positions[3].position = 63;
+gameCtrl.gameState.playerTeam.members[0].position = 53;
+gameCtrl.gameState.playerTeam.members[1].position = 57;
+gameCtrl.gameState.botTeam.members[0].position = 62;
+gameCtrl.gameState.botTeam.members[1].position = 63;
+gameCtrl.positionCharacters();
 // eslint-disable-next-line prefer-destructuring
 gameCtrl.selectedCharacter = gameCtrl.gameState.positions[0];
 

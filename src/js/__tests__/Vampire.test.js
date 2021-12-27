@@ -9,6 +9,8 @@ test('class Vampire should constructs object', () => {
     health: 50,
     moveDistance: 2,
     attackDistance: 2,
+    position: null,
+    teamName: null,
   };
   const received = new Vampire(1);
   expect(received).toEqual(expected);

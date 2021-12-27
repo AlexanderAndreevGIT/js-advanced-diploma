@@ -9,6 +9,8 @@ test('class Undead should constructs object', () => {
     health: 50,
     moveDistance: 4,
     attackDistance: 1,
+    position: null,
+    teamName: null,
   };
   const received = new Undead(1);
   expect(received).toEqual(expected);

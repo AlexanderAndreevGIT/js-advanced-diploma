@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 import GamePlay from './GamePlay';
 import Swordsman from './characters/Swordsman';
@@ -199,7 +200,7 @@ export default class GameController {
             type: 'attack',
             attacker: botTeam[i],
             target: playerTeam[y],
-            damage: this.damage(botTeam[i], playerTeam[y]),
+            damage: GameController.damage(botTeam[i], playerTeam[y]),
           };
           options.push(option);
         }
@@ -218,7 +219,7 @@ export default class GameController {
             if (this.attackIsPossiable(botTeam[i], y, item.position)) {
               option.nextMoveAttack = true;
               option.targetNextMove = item;
-              option.damage = this.damage(option.character, option.targetNextMove);
+              option.damage = GameController.damage(option.character, option.targetNextMove);
               options.push(option);
             }
           });
@@ -343,13 +344,13 @@ export default class GameController {
     return distanceX <= allowedDistance && distanceY <= allowedDistance;
   }
 
-  damage(attacker, target) {
+  static damage(attacker, target) {
     return Math.max(attacker.attack - target.defence, attacker.attack * 0.1);
   }
 
   // @params objects form this.positions
   attack(attacker, target) {
-    const damage = this.damage(attacker.character, target.character);
+    const damage = GameController.damage(attacker.character, target.character);
     return this.gamePlay.showDamage(target.position, damage).then(() => {
       target.character.health -= damage;
       this.gamePlay.deselectCell(target.position);

@@ -9,6 +9,8 @@ test('class Bowerman should constructs object', () => {
     health: 50,
     moveDistance: 2,
     attackDistance: 2,
+    position: null,
+    teamName: null,
   };
   const received = new Bowman(1);
   expect(received).toEqual(expected);
@@ -23,6 +25,8 @@ test('class Bowerman should automatically levelUp character', () => {
     health: 100,
     moveDistance: 2,
     attackDistance: 2,
+    position: null,
+    teamName: null,
   };
   const rec = new Bowman(2);
   expect(rec).toEqual(expected);
